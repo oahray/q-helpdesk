@@ -1,0 +1,18 @@
+<h3>Manage users</h3>
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col-sm">
+      <div class="users-list-container">
+        <h5>Support agents</h5>
+        <%= render "admin/dashboards/user_group", users: @agents%>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="users-list-container">
+        <h5>Customers</h5>
+        <%= render "admin/dashboards/user_group", users: @customers%>
+      </div>
+    </div>
+  </div>
+</div>

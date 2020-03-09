@@ -1,0 +1,16 @@
+<ul class="list-group">
+  <% users.each do |user| %>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <%= user.email %>
+      <% if user.agent? %>
+        <span class="badge badge-primary badge-pill"><%= user.handled_tickets.size %> closed</span>
+        <%= link_to "Remove agent", remove_admin_agent_path(user), 
+          method: :patch, class: "btn btn-outline-primary btn-small" %>
+      <% elsif user.customer? %>
+        <%= link_to "Make agent", add_admin_agent_path(user), 
+          method: :patch, class: "btn btn-outline-primary btn-small" %>
+      <% end %>
+    </li>
+  <% end %>
+  </li>
+</ul>
