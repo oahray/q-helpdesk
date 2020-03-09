@@ -1,0 +1,38 @@
+<div class="table-responsive-sm">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Request number</th>
+        <th scope="col">Title</th>
+        <% if current_user&.agent? %>
+          <th scope="col">Opened by</th>
+        <% end %>
+        <th scope="col">Opened at</th>
+        <th scope="col">Status</th>
+        <th scope="col">Comments</th>
+        <% if current_user&.admin? %>
+          <th scope="col">Closed by</th>
+        <% end %>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tickets.each do |ticket| %>
+        <tr>
+          <th scope="row"> <%= ticket.id %> </th>
+          <td><%= ticket.title %></td>
+          <% if current_user&.agent? %>
+            <td><%= ticket.customer.email %></td>
+          <% end %>
+          <td><%= format_time(ticket.created_at) %></td>
+          <td><%= ticket.status %></td>
+          <td><%= ticket.comments_count %></td>
+          <% if current_user&.admin? %>
+            <td><%= ticket.closed_by&.email || "-" %></td>
+          <% end %>
+          <td> <%= link_to "view", ticket %> </p> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

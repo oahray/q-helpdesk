@@ -1,0 +1,16 @@
+<h3> #<%= @ticket.id %> </h3>
+
+<%= render "ticket_show_info", ticket: @ticket %>
+
+<div class="comment-group-container">
+  <h6 class="text-center"> Comments (<%= @ticket.comments.size %>) </h6>
+  <% if @ticket.comments&.present? %>
+    <% @ticket.comments.each do |comment| %>
+      <%= render "comments/base", comment: comment %>
+    <% end %>
+  <% else %>
+    <%= render "shared/no_data" %>
+  <% end %>
+</div>
+
+<%= render "comments/form", ticket: @ticket%>

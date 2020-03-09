@@ -1,0 +1,19 @@
+<h3>Open new ticket</h3>
+
+<div class="new-ticket-form form">
+  <%= form_tag tickets_path do |form| %>
+    <div class="field">
+      <%= label_tag :title %>
+      <%= text_field_tag :title, nil, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= label_tag :description %>
+      <%= text_area_tag :description %>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag "Create ticket", class: "btn btn-outline-primary" %>
+    </div>
+  <% end %>
+</div>

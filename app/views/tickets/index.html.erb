@@ -1,0 +1,17 @@
+<h3><%= @scope.humanize %> Tickets</h3>
+
+<%= render 'ticket_list_options', user: current_user, tickets: @tickets %>
+
+<% if current_user.agent? %>
+  <%= render 'ticket_list_tabs', user: current_user, tickets: @tickets %>
+<% end %>
+
+<% if @tickets.present? %>
+  <%= render 'ticket_list', tickets: @tickets%>
+<% else%>
+  <%= render 'shared/no_data' %>
+<% end %>
+
+<% if @tickets.length > 10 %>
+  <%= render 'shared/pagination', tickets: @tickets%>
+<% end %>

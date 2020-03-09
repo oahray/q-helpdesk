@@ -1,0 +1,13 @@
+<p> Showing <strong><%= tickets.size %> </strong> <%= tickets.length == 1 ? "ticket" : "tickets" %>
+  <span class="float-right">
+    <% if current_user.customer? %>
+      <%= link_to "New Ticket", new_ticket_path, class: "btn btn-outline-success" %>
+    <% else %>
+      <%= link_to "Export CSV", export_tickets_path(format: :csv, scope: params[:scope]),
+      class: "btn btn-outline-primary #{tickets.empty? ? 'disabled' : ''}" %>
+
+      <%= link_to "Export PDF", export_tickets_path(format: :pdf, scope: params[:scope]), 
+      class: "btn btn-outline-primary #{tickets.empty? ? 'disabled' : ''}" %>
+    <% end %>
+  </span>
+</p>

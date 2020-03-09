@@ -1,0 +1,21 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to "All", tickets_path, class: "nav-link #{params[:scope] == nil ? "active" : ""}" %>
+  </li>
+  
+  <li class="nav-item">
+    <%= link_to "Pending", tickets_path(scope: "pending"), class: "nav-link #{params[:scope] == 'pending' ? 'active' : ''}" %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to "Processing", tickets_path(scope: "processing"), class: "nav-link #{params[:scope] == 'processing' ? 'active' : ''}" %>
+  </li>
+  
+  <li class="nav-item">
+    <%= link_to "All Closed", tickets_path(scope: "closed"), class: "nav-link #{params[:scope] == 'closed' ? 'active' : ''}" %>
+  </li>
+  
+  <li class="nav-item">
+    <%= link_to "Recently Closed", tickets_path(scope: "recently_closed"), class: "nav-link #{params[:scope] == "recently_closed" ? "active" : ""}" %>
+  </li>
+</ul>

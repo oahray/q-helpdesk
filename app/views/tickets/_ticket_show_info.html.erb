@@ -1,0 +1,19 @@
+<div class="card border-dark mb-3">
+  <div class="card-header text-center">
+    <h6 class="text-center"><%= ticket.customer.email %></h6>
+    <small><small class="text-muted"> Created: </small>
+    <%= format_time(ticket.created_at) %> </small>
+  </div>
+  <div class="card-body">
+    <h6 class="card-title "><%= ticket.title %></h6>
+    <p class="card-text"><%= ticket.description %></p>
+  </div>
+  <div class="card-footer">
+    <span class="float-left">
+      Ticket status: <strong><%= ticket.status %></strong>
+    </span>
+    <span class="float-right">
+      <%= link_to "Back to tickets page", tickets_path %>
+    </span>
+  </div>
+</div>
