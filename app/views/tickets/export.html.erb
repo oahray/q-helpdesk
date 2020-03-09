@@ -1,0 +1,7 @@
+<%= wicked_pdf_stylesheet_link_tag('bootstrap') %>
+
+<h3 class="text-center">Q-HelpDesk</h3>
+<h5 class="text-center"><%= @scope.humanize %> tickets report</h5>
+<p class="text-center text-muted">Generated: <%= format_time(DateTime.current) %> </p>
+
+<%= render 'ticket_list', tickets: @tickets%>

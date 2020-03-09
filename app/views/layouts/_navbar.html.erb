@@ -1,0 +1,47 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <a class="navbar-brand" href="/">Q Help Desk</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <% if logged_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="user_email_dropdown">
+            <%= user.email %>
+          </a>
+          <div class="dropdown-menu .dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
+            
+            <% if user.customer? %>
+              <a class="nav-link" href=<%= tickets_path %> >My tickets</a>
+            <% else %>
+              <a class="nav-link" href=<%= tickets_path %> >All tickets</a>
+              <a class="nav-link" href=<%= tickets_path(scope: "pending") %> >Pending tickets</a>
+              <a class="nav-link" href=<%= tickets_path(scope: "processing") %> > In process tickets</a>
+              <a class="nav-link" href=<%= tickets_path(scope: "closed") %> >All closed tickets</a>
+              <a class="nav-link" href=<%= tickets_path(scope: "recently_closed") %> >Recently closed tickets</a>
+            <% end %>
+
+            <% if user.admin? %>
+              <a class="nav-link" href=<%= admin_dashboards_path %> >Admin dashboard</a>
+            <% end%>
+            <div class="dropdown-divider"></div>
+            <a class="nav-link" href=<%= logout_path %> >Logout</a>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <a class="nav-link" href=<%= signup_path %> >Sign up</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href= "<%= login_path %>" >Login</a>
+        </li>
+      <% end %>
+    </ul>
+
+  </div>
+</nav>
