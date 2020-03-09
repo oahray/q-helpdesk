@@ -1,0 +1,17 @@
+<div class="comment-container">
+  <div class="card border-light mb-3">
+    <div class="card-header">
+      <h6>
+        <%= comment.user.email %>
+        <small><small class="text-muted"><%= format_time(comment.created_at) %></small></small>
+
+        <% if comment.edited? %>
+          <small><small><span class="float-right text-muted">Edited: <%= format_time(comment.updated_at) %></span></small></small>
+        <% end %>
+      </h6>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%= comment.body %></p>
+    </div>
+  </div>
+</div>

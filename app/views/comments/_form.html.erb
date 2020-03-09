@@ -1,0 +1,29 @@
+<%= form_tag comments_path do |form| %>
+  <div class="input-group">
+    <%= text_area_tag(:body, current_user.can_comment?(ticket) ? "" : "Comments disabled until a support agent comments",
+      cols: 100, type:"text", id: "comment-textarea", class:"form-control", disabled: !current_user.can_comment?(ticket)) %>
+    <div class="input-group-append">
+      <% if current_user.agent? %>
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Comment</a>
+          <% if ticket.closed? %>
+            <%= link_to "Process", process_ticket_path(ticket), method: :patch, class: "dropdown-item" %>
+            <%= link_to "Reset", reset_ticket_path(ticket), method: :patch, class: "dropdown-item" %>
+          <% elsif ticket.processing? %>
+            <%= link_to "Reset", reset_ticket_path(ticket), method: :patch, class: "dropdown-item" %>
+            <%= link_to "Close", close_ticket_path(ticket), method: :patch, class: "dropdown-item" %>
+          <% else %>
+            <%= link_to "Process", process_ticket_path(ticket), method: :patch, class: "dropdown-item" %>
+            <%= link_to "Close", close_ticket_path(ticket), method: :patch, class: "dropdown-item" %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= submit_tag "comment", disabled: !current_user.can_comment?(ticket),
+      class: "btn btn-outline-secondary d-flex align-items-center", id: "submit-comment-btn" %>
+    </div>
+  </div>
+<% end %>
