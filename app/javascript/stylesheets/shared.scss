@@ -1,0 +1,92 @@
+body {
+  height: 100%;
+}
+
+.main-wrapper {
+  width: 100%;
+}
+
+.main {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: $primary-font;
+  font-weight: 100;
+  position: absolute;
+  right: 0;
+  left: 0;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $header-font;
+    font-weight: bold;
+    text-align: center;
+  };
+
+  h6 {
+    text-align: left;
+  }
+}
+
+*:focus {
+  outline: none !important;
+}
+
+.navbar {
+  background-color: $main-color !important;
+  font-family: $primary-font;
+
+  .navbar-brand {
+    font-family: $header-font;
+  }
+
+  .dropdown-menu {
+    background-color: $main-color !important;
+
+    .nav-link {
+      padding: 5px 15px !important;
+    }
+  }
+}
+
+.footer-main {
+  z-index: 200;
+  background-color: $main-color !important;
+  font-family: $header-font;
+  color: white;
+  width: 100%;
+
+  .copyright-text {
+    text-align: center;
+    margin: 1em 0;
+  }
+}
+
+.page-container {
+  padding: 9vh 3vh 10vh 3vh;
+}
+
+.alert-container {
+  .alert {
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 5em;
+    width: 80%;
+    z-index: 1; // Displays over app and bootstrap Navbar
+  }
+}
+
+.no-data-info-container {
+  margin: 2em 0;
+
+  h6 {
+    color: grey;
+  }
+}
+
+textarea {
+  resize: none;
+}

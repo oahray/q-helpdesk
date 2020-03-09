@@ -1,0 +1,15 @@
+<%= form_with(model: User, local: true) do |form| %>
+  <%= form_tag users_path, { autocomplete: "off" } do |form| %>
+    <div autocomplete="off" class="field">
+      <%= label_tag :email %>
+      <%= text_field_tag :email, nil, autofocus: true %>
+    </div>
+    <div autocomplete="off" class="field">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Sign up" %>
+    </div>
+  <% end %>
+<% end %>

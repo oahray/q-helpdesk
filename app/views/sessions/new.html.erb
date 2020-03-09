@@ -1,0 +1,28 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><%= link_to "Home", root_url%></li>
+  <li class="breadcrumb-item active">Login</li>
+</ol>
+
+<div class="login-page page-content">
+  <h1>Login</h1>
+
+  <div class="form auth-form signin-form">
+    <%= form_tag sessions_path do |form| %>
+      <div class="field">
+        <%= label_tag :email %>
+        <%= text_field_tag :email, nil, autofocus: true %>
+      </div>
+      <div class="field">
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+      </div>
+      <div class="actions">
+        <%= submit_tag "Login" %>
+      </div>
+    <% end %>
+
+    <p>Do not have an account? <%= link_to 'Sign up', signup_path %> </p>
+  </div>
+</div>
+
+<div class="landing-background"></div>

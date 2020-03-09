@@ -1,0 +1,10 @@
+<div class="alert-container center-block">
+  <% flash.each do |type, msg| %>
+    <div class="alert <%= bootstrap_class_for_flash(type) %> alert-dismissable fade show container-fluid" role="alert">
+      <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %> 
+</div>
