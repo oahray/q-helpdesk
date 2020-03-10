@@ -10,6 +10,8 @@ class Ticket < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
 
+  # Scopes that makes it easier to get related data without having to write a
+  # traditional method to handle it
   scope :closed, -> { where(closed: true) }
   scope :processing, -> { where(processing: true) }
   scope :pending, -> { where(closed: false, processing: false) }

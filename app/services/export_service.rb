@@ -14,6 +14,7 @@ class ExportService
 
   private
 
+  # Called klass as class is a reserved word
   def klass
     @content.first.class
   end

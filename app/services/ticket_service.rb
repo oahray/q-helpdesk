@@ -5,20 +5,24 @@ class TicketService
   end
 
   def process
-    raise CustomError::Unauthorized unless @user.agent?
+    ensure_agent!
 
     @user.process(@ticket)
   end
 
   def close
-    raise CustomError::Unauthorized unless @user.agent?
+    ensure_agent!
 
     @user.close(@ticket)
   end
 
   def reset
-    raise CustomError::Unauthorized unless @user.agent?
-    
+    ensure_agent!
+
     @user.reset(@ticket)
+  end
+
+  def ensure_agent!
+    raise CustomError::Unauthorized unless @user.agent?
   end
 end

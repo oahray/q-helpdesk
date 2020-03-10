@@ -3,6 +3,8 @@ module CsvExportable
 
   require 'csv'
 
+  # This makes it possible to call this method as a class method and not
+  # need to instantiate the class first
   class_methods do
     def to_csv(data = [])
       CSV.generate(headers: true) do |csv|
