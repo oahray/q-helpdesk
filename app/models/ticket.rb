@@ -24,7 +24,7 @@ class Ticket < ApplicationRecord
   end
 
   def csv_data
-    [id, title, description.to_s, comments_count, customer.email, created_at.utc.getlocal.strftime("%-I:%M %P - %A %B %m, %Y"), status]
+    [id, title, description.to_s, comments_count, customer.email, created_at.utc.getlocal.strftime("%-I:%M %P - %A %B %d, %Y"), status]
   end
 
   def commentable?(user)

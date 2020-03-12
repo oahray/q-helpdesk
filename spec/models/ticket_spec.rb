@@ -103,7 +103,8 @@ RSpec.describe Ticket do
         closed_ticket.description,
         closed_ticket.comments_count,
         closed_ticket.customer.email,
-        closed_ticket.created_at.utc.getlocal.strftime("%-I:%M %P - %A %B %m, %Y"),
+        closed_ticket.created_at.utc.getlocal.
+          strftime("%-I:%M %P - %A %B %d, %Y"),
         closed_ticket.status
       ]
 

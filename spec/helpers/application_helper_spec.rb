@@ -48,7 +48,8 @@ RSpec.describe ApplicationHelper, :type => :helper  do
       it "returns a formatted string" do
         time = DateTime.parse("10/03/2020 10:00+1:00")
 
-        expect(format_time(time)).to eq("10:00 am - Tuesday March 03, 2020")
+        expect(format_time(time)).to eq("10:00 am - Tuesday March 10, 2020")
       end
     end
   end
+end

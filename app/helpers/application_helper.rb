@@ -39,7 +39,7 @@ module ApplicationHelper
 
   def format_time(time)
     if time.respond_to?(:strftime)
-      time.utc.getlocal.strftime("%-I:%M %P - %A %B %m, %Y")
+      time.strftime("%-I:%M %P - %A %B %d, %Y")
     else
       time
     end
