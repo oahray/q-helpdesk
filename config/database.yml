@@ -49,6 +49,4 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV['Q_HELPDESK_DATABASE'] %>
-  username: <%= ENV['Q_HELPDESK_DATABASE_USERNAME'] %>
-  password: <%= ENV['Q_HELPDESK_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

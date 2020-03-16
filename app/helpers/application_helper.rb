@@ -45,7 +45,6 @@ module ApplicationHelper
     end
   end
 
-
   def get_ticket(id)
     if current_user.customer?
       current_user.tickets.find(id)
